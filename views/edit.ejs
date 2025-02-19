@@ -1,0 +1,87 @@
+<% layout("/biolerplate")%>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+    <h3>Edit Listing</h3>
+    <form method="POST" action="/listing/<%=listings._id%>?_method=PUT" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title :</label>
+            <input name="listing[title]" type="text" value="<%=listings.title %>" class="form-control" required>
+            <div class="invalid-feedback">
+                Please enter name of the property.
+              </div>
+        </div>
+       
+        <div class="mb-3">
+            <label for="description" class="form-label">Description :</label>
+            <textarea name="listing[description]"  type="text" class="form-control" required>value="<%=listings.description %>"</textarea>
+            <div class="invalid-feedback">
+                Please provide description about property.
+              </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="image" class="form-label">Image URL :</label>
+            <input name="listing[image]"  type="text" value="<%=listings.image %>" class="form-control" required>
+            <div class="invalid-feedback">
+                Please provide image link.
+              </div>
+        </div>
+         <div class="row">
+        <div class="mb-3 col-4">
+            <label for="price" class="form-label">Price :</label>
+            <input name="listing[price]" type="number" value="<%=listings.price %>" class="form-control" required>
+            <div class="invalid-feedback">
+                Please provide price of the property.
+              </div>
+        </div>
+
+        <div class="mb-3 col-8">
+            <label for="country" class="form-label">Country :</label>
+            <select name="listing[country]"  class="form-control" required> 
+                <div class="invalid-feedback">
+                    Please enter country Name.
+                  </div>
+                <option selected disabled value="">choose....</option>
+                <option>USA</option>
+                <option>India</option>
+                <option>Thailand</option>
+
+            </select>
+        </div>
+    </div>
+
+        <div class="mb-3">
+            <label for="location" class="form-label">Location :</label>
+            <input  name="listing[location]" type="text" value="<%=listings.location %>" class="form-control" required>
+            <div class="invalid-feedback">
+                Please provide location of the property.
+              </div>
+        </div>
+
+
+        <button class="edit-btn  mb-3 btn-dark btn">Edit</button>
+    </form>
+</div>
+</div>
+
+<script>(() => {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+  
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
+  </script>  
+</body>

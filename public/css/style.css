@@ -1,0 +1,167 @@
+.body{
+    font-family: "Montserrat", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.bio{
+    flex: 1;
+}
+.list{
+    margin: 2rem;  
+}
+/*navbar*/
+.nav-link{
+    color: rgb(49, 44, 44) !important;
+}
+
+
+
+.navbar{
+    height: 4rem;
+    margin-bottom: 2rem;
+    background-color: white;
+}
+.fa-compass{
+    color: rgb(193, 36, 36);
+    font-size: 2rem;
+}
+.nav{
+    width: 40%;
+}
+
+.searchbox{
+    /* width: 60%; */
+    display: flex;
+    justify-content: center !important;
+    align-content: center !important;
+   
+}
+
+.sea{
+    width: 60%;
+}
+
+.search-btn{
+  
+    color: rgb(193, 36, 36)  !important;
+    border-color: rgb(193, 36, 36) !important;
+}
+
+.search-box{
+    border-color: rgb(193, 36, 36) !important;
+}
+
+
+/*footer*/
+.f-info-social{
+    font-size: 1.2rem;
+}
+ 
+.f-info-social i{
+    margin-right: 1rem;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: black;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info{
+    height: 9rem;
+    display: flex;
+    /* justify-content: center; */
+    text-align: center;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+
+}
+
+.f-info-social, .f-info-company , .f-info-links{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center; 
+     align-items: center; 
+}
+
+/* card */
+
+.card{
+    border: none !important;
+    margin-bottom: 2rem;
+    
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    height: 20rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0rem !important;
+}
+
+.card-text p{
+    font-weight: 300 !important;
+}
+
+/* card-img */
+
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+.listing-list{
+    text-decoration: none;
+}
+
+.add-btn{
+    background-color: #c12424 !important;
+    border: none !important;
+}
+.add-btn:hover{
+    box-shadow: #877b7b !important;
+}
+
+.edit-btn {
+    background-color:#c12424 !important ;
+    border: none !important;
+    color: aliceblue !important;
+}
+
+.delete-btn{
+    background-color: black !important;
+    border: none !important;
+    color: aliceblue !important;
+}
+
+h3{
+    color: #c12424 !important;
+}
+
+/* .show-img{
+    height: 300px !important;
+    width: 25% !important;
+} */
+
+
+.show-img{
+    height: 30vh !important;
+
+    width: 80% !important;
+}
+
+
+

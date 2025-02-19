@@ -1,0 +1,73 @@
+<% layout("/biolerplate")%>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+    <h3>Create New Post</h3>
+
+    <form method="POST" action="/listing" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input name="listing[title]" type="text" placeholder="title" class="form-control" required>
+            <div class="invalid-feedback">
+                Please enter name of the property.
+              </div>
+        </div>
+
+        
+        <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea name="listing[description]"  type="text" placeholder="description" class="form-control" required></textarea>
+            <div class="invalid-feedback">
+                Please provide description about property.
+              </div>
+            
+        </div>
+
+        <div class="mb-3">
+            <label for="img" class="form-label">Image URL:</label>
+            <input name="listing[image]"  type="text" placeholder="image" class="form-control">
+           
+        </div>
+
+
+        <div class="row">
+        <div class="mb-3 col-4">
+            <label for="price" class="form-label">Price:</label>
+            <input name="listing[price]" type="number" class="form-control" placeholder="Price" required>
+            <div class="invalid-feedback">
+                Please provide price of the property.
+              </div>
+        </div>
+
+
+        <div class="mb-3 col-8">
+            <label for="country" class="form-label">Country:</label>
+            <input  name="listing[country]" type="text" placeholder="country" class="form-control" required>
+            <div class="invalid-feedback">
+                Please enter country Name.
+              </div>
+        </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="location" class="form-label">Location:</label>
+            <input  name="listing[location]" type="text" placeholder="location" class="form-control" required>
+            <div class="invalid-feedback">
+                Please provide location of the property.
+              </div>
+        </div>
+       
+        
+
+       
+        <br><br>
+        <button class="btn btn-dark  add-btn">Add Item</button>
+        <br><br>
+
+    </form>
+</div>
+</div>
+   
+  
+</body>
