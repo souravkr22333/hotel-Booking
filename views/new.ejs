@@ -4,7 +4,7 @@
         <div class="col-8 offset-2">
     <h3>Create New Post</h3>
 
-    <form method="POST" action="/listing" class="needs-validation" novalidate>
+    <form method="POST" action="/listing" class="needs-validation" novalidate enctype="multipart/form-data" >
         <div class="mb-3">
             <label for="title" class="form-label">Title:</label>
             <input name="listing[title]" type="text" placeholder="title" class="form-control" required>
@@ -24,8 +24,8 @@
         </div>
 
         <div class="mb-3">
-            <label for="img" class="form-label">Image URL:</label>
-            <input name="listing[image]"  type="text" placeholder="image" class="form-control">
+            <label for="img" class="form-label">Upload Image:</label>
+            <input name="listing[image]"  type="file" class="form-control">
            
         </div>
 
@@ -57,11 +57,7 @@
                 Please provide location of the property.
               </div>
         </div>
-       
-        
-
-       
-        <br><br>
+     <br><br>
         <button class="btn btn-dark  add-btn">Add Item</button>
         <br><br>
 

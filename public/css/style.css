@@ -9,11 +9,12 @@
     flex: 1;
 }
 .list{
-    margin: 2rem;  
+    margin: 2rem; 
+    margin-top: 0rem; 
 }
 /*navbar*/
 .nav-link{
-    color: rgb(49, 44, 44) !important;
+    color: rgb(223, 62, 62) !important;
 }
 
 
@@ -32,26 +33,41 @@
 }
 
 .searchbox{
-    /* width: 60%; */
-    display: flex;
+    
+    display: flex; 
     justify-content: center !important;
-    align-content: center !important;
+     align-content: center !important;
+   
    
 }
 
-.sea{
-    width: 60%;
-}
+
 
 .search-btn{
-  
-    color: rgb(193, 36, 36)  !important;
-    border-color: rgb(193, 36, 36) !important;
+  background-color: #dd3c3c !important;
+  color: white !important;
+  border-color: rgb(193, 36, 36) !important;
+    border-radius: 25px !important;
+    padding: 0.5rem 1rem 0.5rem 1rem !important;
 }
 
 .search-box{
     border-color: rgb(193, 36, 36) !important;
+    border-radius: 25px !important;
+    padding: 0.5rem 3rem 0.5rem 3rem !important;
 }
+
+.search-btn i{
+    display: inline;
+    margin-right: 0.5rem;
+    
+  }
+
+.search-btn:hover{
+    background-color: rgb(193, 36, 36) !important;
+    border-color:#e7e0e0!important;
+
+ }
 
 
 /*footer*/
@@ -95,6 +111,7 @@
 .card{
     border: none !important;
     margin-bottom: 2rem;
+    color: #dd3c3c !important;
     
 }
 
@@ -163,5 +180,10 @@ h3{
     width: 80% !important;
 }
 
+/* review */
 
+.review-card{
+    border: 0.5px solid rgb(196, 188, 188) !important;
+    border-radius: 5px;
+}
 

@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-8 offset-2">
     <h3>Edit Listing</h3>
-    <form method="POST" action="/listing/<%=listings._id%>?_method=PUT" class="needs-validation" novalidate>
+    <form method="POST" action="/listing/<%=listings._id%>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
         <div class="mb-3">
             <label for="title" class="form-label">Title :</label>
             <input name="listing[title]" type="text" value="<%=listings.title %>" class="form-control" required>
@@ -21,8 +21,14 @@
         </div>
         
         <div class="mb-3">
-            <label for="image" class="form-label">Image URL :</label>
-            <input name="listing[image]"  type="text" value="<%=listings.image %>" class="form-control" required>
+           OriginalImage :<br>
+           <img src="<%=originalImageUrl %>">
+
+        </div>
+
+        <div class="mb-3">
+          <label for="img" class="form-label">Upload Image:</label>
+          <input name="listing[image]"  type="file" class="form-control" required>
             <div class="invalid-feedback">
                 Please provide image link.
               </div>
@@ -65,7 +71,7 @@
 </div>
 </div>
 
-<script>(() => {
+<!-- <script>(() => {
     'use strict'
   
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -83,5 +89,5 @@
       }, false)
     })
   })()
-  </script>  
+  </script>   -->
 </body>
