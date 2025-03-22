@@ -1,16 +1,31 @@
 .body{
     font-family: "Montserrat", sans-serif !important;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    margin: 0 !important;
+   padding: 0 !important;
+   position: relative !important;
+    /* width: 100vh; */
+   display: flex;
+ 
+   /* justify-content: flex-end;
+   align-items: flex-end; */
+   min-height: 100vh;
+   
 }
+/* .container-box{
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+
+} */
 
 .bio{
     flex: 1;
+   
 }
 .list{
     margin: 2rem; 
-    margin-top: 0rem; 
+    margin-top: 0rem;
+
 }
 /*navbar*/
 .nav-link{
@@ -39,6 +54,39 @@
      align-content: center !important;
    
    
+}
+
+/*edit image box*/
+
+.carousel-inner img {
+    width: 100%
+}
+
+.carousel-item img {
+    width: 320px;
+    height: 240px !important
+}
+
+#myCarousel .carousel-indicators {
+    position: static;
+    margin-top: 0px
+}
+
+#myCarousel .carousel-indicators>li {
+    width: 100px
+}
+
+#myCarousel .carousel-indicators li img {
+    display: block;
+    opacity: 0.5
+}
+
+#myCarousel .carousel-indicators li.active img {
+    opacity: 1
+}
+
+#myCarousel .carousel-indicators li:hover img {
+    opacity: 0.75
 }
 
 
@@ -70,7 +118,9 @@
  }
 
 
+
 /*footer*/
+
 .f-info-social{
     font-size: 1.2rem;
 }
@@ -89,18 +139,21 @@
 }
 
 .f-info{
+   width: 100%;
+    bottom: 0 !important;
+}
+.f-infocontainer{
     height: 9rem;
     display: flex;
-    /* justify-content: center; */
-    text-align: center;
+    justify-content: center; 
+     text-align: center;
     flex-wrap: wrap;
     background-color: antiquewhite;
-    margin-top: auto;
-
 }
 
 .f-info-social, .f-info-company , .f-info-links{
     width: 100%;
+   
     display: flex;
     justify-content: center;
     text-align: center; 
@@ -111,11 +164,15 @@
 
 .card{
     border: none !important;
-    margin-bottom: 2rem;
-    color: #dd3c3c !important;
+    margin-bottom: 1rem;
+    color: black !important;
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2);
     
 }
 
+.showimg{
+    border-radius: 1rem !important;
+}
 .card-img-top{
     border-radius: 1rem !important;
     height: 20rem !important;
@@ -125,6 +182,7 @@
 
 .card-body{
     padding: 0rem !important;
+
 }
 
 .card-text p{
@@ -174,17 +232,46 @@ h3{
     width: 25% !important;
 } */
 
-
+.indeximg{
+    border-top-right-radius:1rem !important;
+    border-top-left-radius: 1rem !important;
+}
 .show-img{
     height: 30vh !important;
 
-    width: 80% !important;
+    width: 40% !important;
 }
 
 /* review */
 
 .review-card{
-    border: 0.5px solid rgb(196, 188, 188) !important;
-    border-radius: 5px;
+    border-bottom: 0.5px solid rgb(196, 188, 188) !important;
+    /* border-radius: 5px; */
+}
+
+/* show list */
+
+.ownername{
+   
+    color: black;
+    /* width: 20rem; */
+    display: flex;
+    align-items: center;
+}
+
+.avgreview{
+    border: none !important;
+     display: inline;
+    display: flex !important;
+    justify-content: start !important ;
+    align-items: center !important;
+    margin-top: 3px !important;
+    margin-bottom: 3px !important;
+}
+
+.description{
+    display: flex;
+    justify-content: start !important ;
+    align-items: center !important;
 }
 

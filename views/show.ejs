@@ -1,20 +1,195 @@
+
+
 <% layout("/biolerplate")%>
 <body>
+  <style>
+    .booking{
+      height: 400px;
+      width: 280px;
+      padding: 20px;
+      position:absolute;
+      right: 90px;
+      top: 340px;
+    
+    }
+
+    .booking-card{
+      border: 1px solid rgb(151, 145, 145);
+      border-radius: 8px;
+      height: 360px;
+      width: 240px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+     
+      padding:10px 15px 10px 15px;
+    }
+
+    .card-body{
+      height: 250px;
+      width: 210px;
+      
+    }
+
+    .price{
+      height: 25px;
+      width: 230px;
+      margin: 0 0 20px;
+    }
+
+    .guest-details{
+      height: 110px;
+      border: 1px solid rgb(151, 145, 145);
+      border-radius: 15px;
+      
+    }
+
+    .dates{
+      display: flex;
+      /* align-items: center;
+      justify-content: center; */
+      height: 55px;
+      border-bottom: 1px solid rgb(151, 145, 145);
+    }
+
+    #check-in{
+      border-right: 1px solid rgb(151, 145, 145);
+      width: 105px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+    #check-out{
+      width: 105px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .guest{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      height: 55px;
+      width: 210px;
+    }
+
+    .reserve-btn{
+      width: 210px;
+      margin-top: 10px;
+      
+    }
+
+    .inputdate {
+      border: none;
+       width: 80px; 
+      font-size: 18px;
+     
+    }
+
+    .inputguest{
+      border: none;
+       width: 80px; 
+      font-size: 14px;
+      height:15px ;
+      align-items:center ;
+    }
+  
+  </style>
+
     <div class="row">
-        <div class="col-8 offset-2">
-          <h3><%= listings.title %></h3>
+        <div class="col-6 offset-2">
+         <h3><%= listings.title %></h3>
+         
         </div>
-     <div class="card  col-6 offset-2" >
-        <img src="<%=listings.image.url%>" class="card-img-top show-img" alt="Listing image">
-        <div class="card-body">
-          <p class="card-text"> <i>Owned By <%= listings.owner.username %></i></p>
-          <p class="card-text"><%=listings.description %></p>
-          <p class="card-text">&#x20b9;<%= listings.price.toLocaleString("en-IN") %>/Night</p> 
-          <p class="card-text"> <%= listings.location%></p>
-          <p class="card-text">  <%= listings.country %></p>
+
+    <div id="carouselExampleIndicators" class="carousel slide card-img col-7  offset-2" style="width: 40rem;">
+      <div class="carousel-indicators"  id="carouselInner">
+        <% for(let i=0;i<listings.image.length;i++){%>
+         
+        <button type="button" id="carousel-Item" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" <%if(i===0){ %> class="active" <%}%>  aria-label="Slide <%= i %>"></button>
+        
+        <% } %>
+      </div>
+      <div class="carousel-inner showimg">
+        <% let i=0 %>
+        <% for(img of listings.image) { %>
+         
+        <div class="carousel-item   <% if(i===0){ %> 
+          active
+          <%}%> ">
+          <img src="<%=img.url%>" class="d-block w-100" alt="...">
+
+        </div>
+        <% i++ %>
+        <% } %>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+     <div class= "desc-card col-6 offset-2 "> 
+        <div class="card-desc ">
+          <div class="description ">
+          <b><p class="card-text mb-0"><%=listings.description %>.</p></b>
+          &nbsp;  &nbsp;<b><p class="card-tex mb-0">  <%= listings.location%>, <%= listings.country %>, <%= listings.pincode %>.</p></b>
+          </div>
+          <div class="avgreview review-card ms-2">
+          <i class="fa-solid fa-star"></i>&nbsp; <%= listings.avgReview %> &nbsp;|&nbsp; <%= listings.totalReview %>&nbsp; reviews
+          </div>
+          <hr>
+          <div class="card-text ownername mb-5 mt-5 ms-2" style="font-weight: 8rem;">
+            <i class="fa-solid fa-circle-user fa-3x"></i>
+             &nbsp;&nbsp;<div  style="align-items: center;" >Hosted By <%= listings.owner.username %></div>
+          </div>
+          <hr>
         </div>
      </div>
     </div>
+
+    <div class="booking " >
+        <div class="booking-card">
+          <div class="card-body">
+            <div class="price">
+              <p class="card-text mb-0">&#x20b9;<%= listings.price.toLocaleString("en-IN") %>/Night</p> 
+            </div>
+            <div class="guest-details">
+              <div class="dates">
+              <div id="check-in">
+                <label for="date" style="cursor: pointer;">Check-In</label>
+    
+                <input type="date" id="date" class="inputdate">
+              </div>
+              <div id="check-out">
+                <label for="date" style="cursor: pointer;">Check-Out</label>
+                <input type="date" id="date" class="inputdate" style="border: none;">
+              
+              </div>
+              
+              </div>
+              <div class="guest">
+                <label for="guest" style="cursor: pointer;">Guests</label>
+                <input type="number" id="guest" class="inputguest">
+              </div>
+            </div>
+              <button class="btn btn-danger reserve-btn">Reserve</button>
+          </div>
+
+        </div>
+      </div>
+
+
 <% if(currentUser && currentUser.id == listings.owner.id){ %>
 <div class= "row">
     <a href="/listing/<%= listings._id%>/edit" class="col-1 offset-2  mb-3  "><button class="btn btn-dark">Edit</button></a>
@@ -27,14 +202,14 @@
 
 
 <% if (currentUser) { %>
-<div class="reviews col-8 offset-2 mb-2">
+<div class="reviews col-6 offset-2 mb-2">
   <hr>
   <h2 class="mb-3">Product Rating</h2>
  <form action="/listing/<%= listings._id%>/reviews" method="post" class="needs-validation" novalidate>
  <div class="rating mb-2 mt-2">
   <label>Rating</label>
-   <fieldset class="starability-slot">
-    <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+   <fieldset class="starability-slot" >
+    <input type="radio" id="no-rate" class="input-no-rate " name="review[rating]" value="1" checked aria-label="No rating."/>
     <input type="radio" id="first-rate1" name="review[rating]" value="1" />
     <label for="first-rate1" title="Terrible">1 star</label>
     <input type="radio" id="first-rate2" name="review[rating]" value="2" />
@@ -63,16 +238,19 @@
 
 <% } %>
 
-<div class="reviews col-8 offset-2 mb-2"> 
+<div class="reviews col-6 offset-2 mb-2"> 
   <hr>
     <h3>Reviews</h3>
    <div class="row">
+   
     <% for(review of listings.reviews){ %>
+      
       <% if (review) {%>
         <div class="review-card col-5 ms-2 mb-2">
-          <div class="card-body">
+          <div class="card-body" style="height: fit-content; overflow: hidden;">
             <div class="card-text"><b>@<%= review.author.username %></b></div>
             <p class="starability-result" data-rating="<%= review.rating %>"></p>
+            
             <div class="card-text mb-2"><%= review.comment %></div>
             
             <% if(review.author.equals(currentUser)){ %>
@@ -83,6 +261,7 @@
           </div>
         </div>
       <% }  else { %>
+      
         
           <p>Not yet reviewed</p>
         
@@ -91,4 +270,26 @@
     <% } %>
   </div>
 </div>
+
+ 
+ <script>
+  function menubar(){
+    document.getElementById("menu-content").style.visibility="visible";
+    document.getElementById("menu-content").classList.add("menuitem");
+  }
+
+  function remove(){
+    
+    document.getElementById("menu-content").classList.remove("menuitem");
+    document.getElementById("menu-content").style.visibility="hidden";
+  }
+ </script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    flatpickr("#date", {
+      dateFormat: "d-m-y", // Customize date format
+      minDate: "today",    // Restrict to today and future dates
+      enableTime: false,   // Enable time selection if needed
+    });
+    </script>
 </body>

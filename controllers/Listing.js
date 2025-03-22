@@ -24,11 +24,20 @@ module.exports.showListings = async(req,res)=>{
 };
 
 module.exports.createListing = async(req,res)=>{
-    let url=req.file.path;
-    let filename= req.file.filename;
+    const files = req.files;
+   
+    // let url=req.file.path;
+    // let filename= req.file.filename;
     const newlisting= new listing(req.body.listing);
     newlisting.owner= req.user._id;
-    newlisting.image={url,filename};
+    for(let file of files){
+       
+        const url =  file.path;
+        const filename =  file.filename;
+         newlisting.image.push({url,filename});
+    }
+   
+   
     await newlisting.save();
     req.flash("success", "New List Added Sucessfully");
     res.redirect("/listing");

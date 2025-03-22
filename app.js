@@ -32,6 +32,7 @@ const User = require("./model/user.js");
 
 // mongoose connection using express
 const dburl=process.env.ATLASDB_URL;
+const mongourl="mongodb://localhost:27017/?directConnection=true";
 
 Main().then(()=>{
     console.log("connected to data base");

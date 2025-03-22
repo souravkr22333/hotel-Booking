@@ -38,6 +38,16 @@
         .form-check-input{
             cursor: pointer;
         }
+
+        .listing-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+
     </style>
 
     <div id="filters">
@@ -103,12 +113,44 @@
 
     </div>
     <div class="list">
-        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
             <% for(list of allData) {%>
                 <a href="/listing/<%= list._id%>" class="listing-list">
-                    <div class="card col" >
-                        <img src="<%=list.image.url %>" class="card-img-top" alt="listing-image">
-                        <div class="card-img-overlay"></div>
+                    <div class="card col" style="width:20rem ; border-top-left-radius: 1rem; border-top-right-radius: 1rem;">
+
+                        <div id="carouselExampleIndicators" class="carousel slide card-img" style="width: 20rem;">
+                            <div class="carousel-indicators"  id="carouselInner">
+                              <% for(let i=0;i<list.image.length;i++){%>
+                               
+                              <button type="button" id="carousel-Item" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" <%if(i===0){ %> class="active" <%}%>  aria-label="Slide <%= i %>"></button>
+                              
+                              <% } %>
+                            </div>
+                            <div class="carousel-inner indeximg">
+                              <% let i=0 %>
+                              <% for(img of list.image) { %>
+                               
+                              <div class="carousel-item   <% if(i===0){ %> 
+                                active
+                                <%}%> ">
+                                <img src="<%=img.url%>" class="d-block w-100" alt="...">
+
+                              </div>
+                              <% i++ %>
+                              <% } %>
+                      
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
+ 
+
                         <div class="card-body">
                           <p class="card-text"><b><%= list.title%></b><br>
                            &#x20b9;<%= list.price.toLocaleString("en-IN")%>/Night
@@ -137,5 +179,5 @@
         }
     });
    </script>
-
+ 
 </body>
