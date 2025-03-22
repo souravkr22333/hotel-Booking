@@ -198,12 +198,13 @@
         <button class="btn btn-danger">Delete</button>
     </form>
 </div>
+<hr class="col-6 offset-2">
+
 <% } %>
 
 
-<% if (currentUser) { %>
+
 <div class="reviews col-6 offset-2 mb-2">
-  <hr>
   <h2 class="mb-3">Product Rating</h2>
  <form action="/listing/<%= listings._id%>/reviews" method="post" class="needs-validation" novalidate>
  <div class="rating mb-2 mt-2">
@@ -236,7 +237,7 @@
  </form>
 </div>
 
-<% } %>
+
 
 <div class="reviews col-6 offset-2 mb-2"> 
   <hr>

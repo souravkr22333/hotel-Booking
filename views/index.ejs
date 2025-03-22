@@ -118,7 +118,7 @@
                 <a href="/listing/<%= list._id%>" class="listing-list">
                     <div class="card col" style="width:20rem ; border-top-left-radius: 1rem; border-top-right-radius: 1rem;">
 
-                        <div id="carouselExampleIndicators" class="carousel slide card-img" style="width: 20rem;">
+                        <div id="<%= list._id%>" class="carousel slide card-img" style="width: 20rem;">
                             <div class="carousel-indicators"  id="carouselInner">
                               <% for(let i=0;i<list.image.length;i++){%>
                                
@@ -140,18 +140,18 @@
                               <% } %>
                       
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#<%= list._id%>" data-bs-slide="prev">
                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                               <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#<%= list._id%>" data-bs-slide="next">
                               <span class="carousel-control-next-icon" aria-hidden="true"></span>
                               <span class="visually-hidden">Next</span>
                             </button>
                           </div>
  
 
-                        <div class="card-body">
+                        <div class="card-body ms-2 mb-2 mt-2">
                           <p class="card-text"><b><%= list.title%></b><br>
                            &#x20b9;<%= list.price.toLocaleString("en-IN")%>/Night
                           &nbsp;&nbsp; <i class="gst"> +18% GST</i>
